@@ -1,0 +1,34 @@
+import React from 'react'
+
+export const Navbar = () => {
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light mt-5">
+        <div className="container-fluid">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item ms-4">
+                <a className="nav-link active" aria-current="page" href="/#">Inicio</a>
+              </li>
+              <li className="nav-item ms-4">
+                <a className="nav-link" href="#ubicacion">Ubicacion</a>
+              </li>
+              <li className="nav-item ms-4">
+                <a className="nav-link" href="#asistencia">Asistencia</a>
+              </li>
+              <li className="nav-item ms-4">
+                <a className="nav-link" href="#pagos">Medios de pago</a>
+              </li>
+              <li className="nav-item ms-4">
+                <a className="nav-link" href="#regalos">Regalos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  )
+}
