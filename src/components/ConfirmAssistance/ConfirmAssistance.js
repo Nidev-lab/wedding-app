@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const ConfirmAssistance = ({ user }) => {
   const urlBase = process.env.REACT_APP_URL_API
 
   const [userConfirmed, setUserConfirmed] = useState({})
+  const [isAcepted, setIsAcepted] = useState('')
   const [message, setMessage] = useState('')
   
   const handleSubmit = async (e) => {
@@ -35,8 +36,15 @@ export const ConfirmAssistance = ({ user }) => {
       isConfirmed: (target.value === 'true'),
     })
   }
+
+  useEffect(() => {
+    if (user.isConfirmed === true) {
+      setIsAcepted('Genial! Nos alegramos que estarás presente esa noche')
+    } else {
+      setIsAcepted('Que pena! Seguramente encontraremos otro momento para compartir')
+    }
+  }, [user.isConfirmed])
   
-  console.log(user)
   return (
     <div id="asistencia" className="mb-5">
       <div className="px-4">
@@ -49,7 +57,7 @@ export const ConfirmAssistance = ({ user }) => {
             <label htmlFor="apellido">Apellido(s)</label>
             <input type="text" name="apellido" className="form-control my-2" value={user.lastName || ''} disabled />
             
-            <label htmlFor="isConfirmed">Asistiras?</label>
+            <label htmlFor="isConfirmed">Asistirás?</label>
             <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} disabled={!!user.isConfirmed}>
               <option value={true}>Si</option>
               <option value={false}>No</option>
@@ -58,7 +66,7 @@ export const ConfirmAssistance = ({ user }) => {
             {
               !user.isConfirmed && <button className="btn btn-outline-secondary w-100">Confirmar asistencia</button>
             }
-            <p className="mt-4 text-center">{message}</p>
+            <p className="mt-4 text-center">{message || isAcepted}</p>
           </form>
         </div>
       </div>

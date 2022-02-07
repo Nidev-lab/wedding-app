@@ -3,7 +3,7 @@ import React from 'react'
 export const Where = () => {
   return (
     <section className="mb-5">
-      <h1 id="ubicacion" className="text-center">Ubicacion</h1>
+      <h1 id="ubicacion" className="text-center">Ubicación</h1>
       <div className="mt-5 gx-0 text-center">
         <h3 className='my-4'>Pacará House Salon</h3>
         <div className='d-flex justify-content-center'>

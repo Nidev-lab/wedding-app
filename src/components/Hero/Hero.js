@@ -6,7 +6,7 @@ export const Hero = ({ user }) => {
       <h1 className="principal-title text-center">{user.name} {user.lastName}</h1>
       <div className='d-flex justify-content-center mt-4'>
         <div className='col-10 col-md-8'>
-          <h4 className='text-center'>Para nosotros es fundamental compartir la alegria de nuestro matrimonio con vos, por eso nos gustaria que nos acompañes</h4>
+          <h4 className='text-center'>Para nosotros es fundamental compartir la alegría de nuestro matrimonio con vos, por eso nos gustaría que nos acompañes</h4>
         </div>
       </div>
       <div className="text-center">
@@ -20,7 +20,7 @@ export const Hero = ({ user }) => {
             <div>
               <hr className="w-100"/>
               <h1 className="py-4 px-5">Marianella Juarez Rivas</h1>
-              <h2>—&nbsp;<em>and</em>&nbsp;—</h2>
+              <h2>—&nbsp;<em>y</em>&nbsp;—</h2>
               <h1 className="py-4 px-5">Nicolas Gonzalez</h1>
               <hr className="w-100" />
             </div>
@@ -28,7 +28,7 @@ export const Hero = ({ user }) => {
           <br />
           <div className="d-flex justify-content-center">
             <div className="col-lg-6 col-12">
-              <h3>Sabado, 1 de Octubre, 2022</h3>
+              <h3>Sábado, 1 de Octubre, 2022</h3>
             </div>      
           </div>
         </div>
