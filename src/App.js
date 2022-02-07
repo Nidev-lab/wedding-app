@@ -14,7 +14,7 @@ function App() {
     <div className="App container">
       <div className="bg-page">
         <Switch>
-          <Route exact path="/home/:id" component={ Home }/>
+          <Route exact path="/invitation/:id" component={ Home }/>
           <Route exact path="/admin" component={ Admin }/>
           <Route exact path="/admin/panel" component={ Panel }/>
           <Route exact path="/admin/invite" component={ Invite }/>
