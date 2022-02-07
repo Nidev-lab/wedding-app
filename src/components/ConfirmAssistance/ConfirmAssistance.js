@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 export const ConfirmAssistance = ({ user }) => {
   const [userConfirmed, setUserConfirmed] = useState({})
 
-  console.log(user.isConfirmed)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 

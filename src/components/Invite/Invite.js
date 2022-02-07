@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form"
 import { useState } from 'react/cjs/react.development'
 
 export const Invite = () => {
+  const urlBase = 'https://ancient-badlands-19430.herokuapp.com'
   const { register, handleSubmit } = useForm()
   const [invitation, setInvitation] = useState("")
   const token = localStorage.getItem("token")
 
   const onSubmit = data => {
-    fetch('http://localhost:8000/invited', {
+    fetch(`${urlBase}/invited`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

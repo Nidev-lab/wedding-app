@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom" 
 
 export const Login = () => {
+  const urlBase = 'https://ancient-badlands-19430.herokuapp.com'
   let history = useHistory() 
 
   const [login, setLogin] = useState({
@@ -21,7 +22,7 @@ export const Login = () => {
         body: JSON.stringify(login),
       } 
 
-      const respuesta = await fetch('http://localhost:8000/login', parametros) 
+      const respuesta = await fetch(`${urlBase}/login`, parametros) 
       const dato = await respuesta.json() 
 
       if (respuesta.status === 200) {

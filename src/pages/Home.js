@@ -8,16 +8,16 @@ import { Payments } from '../components/Payments/Payments'
 import { Where } from '../components/Where/Where'
 
 export const Home = () => {
-
+  const urlBase = 'https://ancient-badlands-19430.herokuapp.com'
   const { id } = useParams()
 
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    fetch(`http://localhost:8000/invited/${id}`)
+    fetch(`${urlBase}/invited/${id}`)
       .then(resp => resp.json())
       .then(json => setUser(json))
-  },[id])
+  },[id, urlBase])
 
   return (
     <>
