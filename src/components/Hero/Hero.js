@@ -3,7 +3,7 @@ import heroimage from '../../assets/images/optionhero.jpg'
 export const Hero = ({ user }) => {
   return (
     <div className='mb-5'>
-      <h1 className="principal-title text-center">{user.name}</h1>
+      <h1 className="principal-title text-center">{user.name} {user.lastName}</h1>
       <div className='d-flex justify-content-center mt-4'>
         <div className='col-10 col-md-8'>
           <h4 className='text-center'>Para nosotros es fundamental compartir la alegria de nuestro matrimonio con vos, por eso nos gustaria que nos acompañes</h4>

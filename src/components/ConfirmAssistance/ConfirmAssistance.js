@@ -39,10 +39,10 @@ export const ConfirmAssistance = ({ user }) => {
         <h1 className="mb-4 text-center">Confirmanos tu asistencia</h1>
         <div className='row justify-content-center'>
           <form className="mt-4 col-12 col-md-8 col-lg-6" onSubmit={handleSubmit}>
-            <label htmlFor="nombre">Nombre</label>
+            <label htmlFor="nombre">Nombre(s)</label>
             <input type="text" name="nombre" className="form-control my-2" value={user.name || ''} disabled />
 
-            <label htmlFor="apellido">Apellido</label>
+            <label htmlFor="apellido">Apellido(s)</label>
             <input type="text" name="apellido" className="form-control my-2" value={user.lastName || ''} disabled />
             
             <label htmlFor="isConfirmed">Asistiras?</label>
