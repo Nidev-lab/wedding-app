@@ -9,7 +9,6 @@ import { Where } from '../components/Where/Where'
 
 export const Home = () => {
   const urlBase = process.env.REACT_APP_URL_API
-  console.log(urlBase)
   const { id } = useParams()
 
   const [user, setUser] = useState({})
@@ -26,7 +25,9 @@ export const Home = () => {
       <div className="container">
         <Hero user={user}/>
         <ConfirmAssistance user={user}/>
-        <Payments />
+        {
+          user.isPaid && <Payments />
+        }
         <Gifts />
         <Where />
       </div>
