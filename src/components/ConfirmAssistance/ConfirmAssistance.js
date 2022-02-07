@@ -52,7 +52,7 @@ export const ConfirmAssistance = ({ user }) => {
             <input type="text" name="apellido" className="form-control my-2" value={user.lastName || ''} disabled />
             
             <label htmlFor="isConfirmed">Asistirás?</label>
-            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} disabled={user.isConfirmed}>
+            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} >
               <option value={true}>Si</option>
               <option value={false}>No</option>
             </select>
