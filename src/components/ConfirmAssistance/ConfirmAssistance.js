@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export const ConfirmAssistance = ({ user }) => {
   const urlBase = process.env.REACT_APP_URL_API
 
-  const [userConfirmed, setUserConfirmed] = useState({})
+  const [userConfirmed, setUserConfirmed] = useState({...user, isConfirmed: true})
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
   
@@ -52,7 +52,7 @@ export const ConfirmAssistance = ({ user }) => {
             <input type="text" name="apellido" className="form-control my-2" value={user.lastName || ''} disabled />
             
             <label htmlFor="isConfirmed">Asistirás?</label>
-            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} >
+            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange}>
               <option value={true}>Si</option>
               <option value={false}>No</option>
             </select>
@@ -63,8 +63,8 @@ export const ConfirmAssistance = ({ user }) => {
                 ?
                   (
                     <div className='mt-1'>
-                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                      <span class="visually-hidden">Loading...</span>
+                      <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      <span className="visually-hidden">Loading...</span>
                     </div>
                   )
                 : 
