@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 export const ConfirmAssistance = ({ user }) => {
   const urlBase = process.env.REACT_APP_URL_API
 
   const [userConfirmed, setUserConfirmed] = useState({})
-  const [isAcepted, setIsAcepted] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
   
   const handleSubmit = async (e) => {
     e.preventDefault()
     
+    setIsLoading(true)
     try {
       const parametros = {
         method: "PATCH",
@@ -24,6 +25,7 @@ export const ConfirmAssistance = ({ user }) => {
       
       if (respuesta.status === 200) {
         setMessage(dato.mensaje)
+        setIsLoading(false)
       }
     } catch (error) {
       console.error(error)
@@ -36,14 +38,6 @@ export const ConfirmAssistance = ({ user }) => {
       isConfirmed: (target.value === 'true'),
     })
   }
-
-  useEffect(() => {
-    if (user.isConfirmed === true) {
-      setIsAcepted('Genial! Nos alegramos que estarás presente esa noche')
-    } else {
-      setIsAcepted('Que pena! Seguramente encontraremos otro momento para compartir')
-    }
-  }, [user.isConfirmed])
   
   return (
     <div id="asistencia" className="mb-5">
@@ -58,15 +52,28 @@ export const ConfirmAssistance = ({ user }) => {
             <input type="text" name="apellido" className="form-control my-2" value={user.lastName || ''} disabled />
             
             <label htmlFor="isConfirmed">Asistirás?</label>
-            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} disabled={!!user.isConfirmed}>
+            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} disabled={user.isConfirmed}>
               <option value={true}>Si</option>
               <option value={false}>No</option>
             </select>
 
-            {
-              !user.isConfirmed && <button className="btn btn-outline-secondary w-100">Confirmar asistencia</button>
-            }
-            <p className="mt-4 text-center">{message || isAcepted}</p>
+            <button className="btn btn-outline-secondary w-100">
+              {
+                isLoading 
+                ?
+                  (
+                    <div className='mt-1'>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  )
+                : 
+                  (
+                    <span>Confirmar asistencia</span>
+                  )
+              }
+            </button>
+            <p className="mt-4 text-center">{message}</p>
           </form>
         </div>
       </div>

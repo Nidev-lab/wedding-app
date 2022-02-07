@@ -9,6 +9,7 @@ export const Invite = () => {
   }
 
   const urlBase = process.env.REACT_APP_URL_API
+  
   const { register, handleSubmit } = useForm()
   const [invitation, setInvitation] = useState("")
 
