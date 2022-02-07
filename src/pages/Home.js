@@ -21,16 +21,32 @@ export const Home = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="container">
-        <Hero user={user}/>
-        <ConfirmAssistance user={user}/>
-        {
-          user.isPaid && <Payments />
-        }
-        <Gifts />
-        <Where />
-      </div>
+      {
+        !user.name
+        ?
+        (
+          <div className="d-flex align-items-center justify-content-center" style={{ height: '50vh' }}>
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )
+        :
+        (
+          <>
+            <Navbar />
+            <div className="container">
+              <Hero user={user} />
+              <ConfirmAssistance user={user} />
+              {
+                user.isPaid && <Payments />
+              }
+              <Gifts />
+              <Where />
+            </div>
+          </>
+        )
+      }
     </>
   )
 }
