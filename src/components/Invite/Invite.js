@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useState } from 'react/cjs/react.development'
 
 export const Invite = () => {
-  const urlBase = 'https://ancient-badlands-19430.herokuapp.com'
+  const urlBase = process.env.REACT_APP_URL_API
   const { register, handleSubmit } = useForm()
   const [invitation, setInvitation] = useState("")
   const token = localStorage.getItem("token")

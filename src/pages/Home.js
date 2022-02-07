@@ -8,7 +8,8 @@ import { Payments } from '../components/Payments/Payments'
 import { Where } from '../components/Where/Where'
 
 export const Home = () => {
-  const urlBase = 'https://ancient-badlands-19430.herokuapp.com'
+  const urlBase = process.env.REACT_APP_URL_API
+  console.log(urlBase)
   const { id } = useParams()
 
   const [user, setUser] = useState({})

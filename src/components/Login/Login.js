@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom" 
 
 export const Login = () => {
-  const urlBase = 'https://ancient-badlands-19430.herokuapp.com'
+  const urlBase = process.env.REACT_APP_URL_API
   let history = useHistory() 
 
   const [login, setLogin] = useState({
