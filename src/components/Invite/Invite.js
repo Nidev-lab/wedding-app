@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
-import { useState } from 'react/cjs/react.development'
 
 export const Invite = () => {
   const token = localStorage.getItem("token")
