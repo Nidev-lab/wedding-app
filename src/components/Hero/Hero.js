@@ -28,7 +28,7 @@ export const Hero = ({ user }) => {
           <br />
           <div className="d-flex justify-content-center">
             <div className="col-lg-6 col-12">
-              <h3>Sábado, 1 de Octubre, 2022</h3>
+              <h3>Sábado, 1 de Octubre, 2022 - 21:30hs</h3>
             </div>      
           </div>
         </div>

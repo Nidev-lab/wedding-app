@@ -17,8 +17,10 @@ export const Home = () => {
     fetch(`${urlBase}/invited/${id}`)
       .then(resp => resp.json())
       .then(json => setUser(json))
-  },[id, urlBase])
 
+    },[id, urlBase])
+    
+    document.title = user.name + ' ' + user.lastName
   return (
     <>
       {
@@ -26,8 +28,8 @@ export const Home = () => {
         ?
         (
           <div className="d-flex align-items-center justify-content-center" style={{ height: '50vh' }}>
-            <div class="spinner-border" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         )
