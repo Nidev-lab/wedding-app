@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 
 export const ConfirmAssistance = ({ user }) => {
-  const [userConfirmed, setUserConfirmed] = useState({})
+  const urlBase = process.env.REACT_APP_URL_API
 
+  const [userConfirmed, setUserConfirmed] = useState({})
+  const [message, setMessage] = useState('')
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    
     try {
       const parametros = {
         method: "PATCH",
@@ -15,24 +18,25 @@ export const ConfirmAssistance = ({ user }) => {
         body: JSON.stringify(userConfirmed),
       }
 
-      const respuesta = await fetch(`http://localhost:8000/invited/${user._id}`, parametros)
+      const respuesta = await fetch(`${urlBase}/invited/${user._id}`, parametros)
       const dato = await respuesta.json()
-
+      
       if (respuesta.status === 200) {
-        console.log(dato)
+        setMessage(dato.mensaje)
       }
     } catch (error) {
       console.error(error)
     }
   }
-
+  
   const handleChange = ({ target }) => {
     setUserConfirmed({
       ...user,
       isConfirmed: (target.value === 'true'),
     })
   }
-
+  
+  console.log(user)
   return (
     <div id="asistencia" className="mb-5">
       <div className="px-4">
@@ -46,7 +50,7 @@ export const ConfirmAssistance = ({ user }) => {
             <input type="text" name="apellido" className="form-control my-2" value={user.lastName || ''} disabled />
             
             <label htmlFor="isConfirmed">Asistiras?</label>
-            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} disabled={user.isConfirmed}>
+            <select className="form-select mb-4" aria-label="Necesita transporte?" onChange={handleChange} disabled={!!user.isConfirmed}>
               <option value={true}>Si</option>
               <option value={false}>No</option>
             </select>
@@ -54,7 +58,7 @@ export const ConfirmAssistance = ({ user }) => {
             {
               !user.isConfirmed && <button className="btn btn-outline-secondary w-100">Confirmar asistencia</button>
             }
-            <p className="mt-4 text-center">*Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="mt-4 text-center">{message}</p>
           </form>
         </div>
       </div>
