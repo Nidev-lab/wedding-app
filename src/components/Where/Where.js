@@ -12,7 +12,7 @@ export const Where = () => {
           </div>
         </div>
         <div className='my-4'>
-          <h5>Ruta 314 Km 3.5, 4103.</h5>
+          <h5>Ruta 305</h5>
           <h5>Tafí Viejo, Tucuman.</h5>
           <h5>01/10/2022 - 21:30hs</h5>
         </div>
