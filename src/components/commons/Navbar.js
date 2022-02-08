@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Navbar = () => {
+export const Navbar = ({ user }) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light mt-5" id="inicio">
@@ -19,9 +19,15 @@ export const Navbar = () => {
               <li className="nav-item ms-4">
                 <a className="nav-link" href="#asistencia">Asistencia</a>
               </li>
-              <li className="nav-item ms-4">
-                <a className="nav-link" href="#pagos">Medios de pago</a>
-              </li>
+              {
+                user.isPaid && 
+                (
+                  <li className="nav-item ms-4">
+                    <a className="nav-link" href="#pagos">Medios de pago</a>
+                  </li>
+                )
+              }
+              
               <li className="nav-item ms-4">
                 <a className="nav-link" href="#regalos">Regalos</a>
               </li>

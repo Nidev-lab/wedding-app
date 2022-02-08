@@ -36,7 +36,7 @@ export const Home = () => {
         :
         (
           <>
-            <Navbar />
+            <Navbar user={user}/>
             <div className="container">
               <Hero user={user} />
               <ConfirmAssistance user={user} />
