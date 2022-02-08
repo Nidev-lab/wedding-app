@@ -17,8 +17,7 @@ export const Home = () => {
     fetch(`${urlBase}/invited/${id}`)
       .then(resp => resp.json())
       .then(json => setUser(json))
-
-    },[id, urlBase])
+  },[id, urlBase])
     
     document.title = user.name + ' ' + user.lastName
   return (
