@@ -12,14 +12,21 @@ export const Payments = () => {
         <div className="mt-5 row justify-content-center">
           <div className="col-lg-6 col-12 mb-5">
             <h3 className='text-center'>MercadoPago</h3>
-            <div className='d-flex justify-content-center'>
-              <img src={qr} alt="qr" className='text-center'/>
+            <div className='text-center py-3'>
+              <p className='m-1'>CVU: 0000003100016432631666</p>
+              <p className='m-1'>Alias: MARIANELLA.JRIVAS</p>
+              <p className='m-1'>o</p>
+              <p className='m-1'>Abona haciendo click <a href='http://mpago.li/1SxZFFV'>aqui</a></p>
             </div>
           </div>
           <div className="col-lg-6 col-12 mb-5">
             <h3 className='text-center'>Transferencia</h3>
-            <div className='d-flex justify-content-center'>
-              <img src={qr} alt="qr" className='text-center' />
+            <div className='text-center py-3'>
+              <p className='m-1'>Nombre completo: Marianella Juarez Rivas</p>
+              <p className='m-1'>CBU: 1430001713005586350011</p>
+              <p className='m-1'>Alias: MARIANELLAJRIVAS</p>
+              <p className='m-1'>Nº de cuenta: 1300558635001</p>
+              <p className='m-1'>CUIT: 27-38742868-8</p>
             </div>
           </div>
         </div>
