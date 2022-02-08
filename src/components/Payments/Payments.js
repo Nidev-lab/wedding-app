@@ -1,5 +1,4 @@
 import React from 'react'
-import qr from '../../assets/qr.png'
 
 export const Payments = () => {
   return (
