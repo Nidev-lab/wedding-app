@@ -34,7 +34,7 @@ export const AllGuest = () => {
 
   return (
     <div>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Mesa</th>
@@ -55,7 +55,7 @@ export const AllGuest = () => {
                 <td>{user.lastName}</td>
                 <td>{user.isConfirmed ? '🟢' : '🔴'}</td>
                 <td>
-                  <button onClick={() => handleDelete(user._id)}>Eliminar</button>
+                  <button className="btn btn-danger btn-sm" onClick={() => handleDelete(user._id)}>X</button>
                 </td>
               </tr>
             ))
