@@ -37,6 +37,7 @@ export const AllGuest = () => {
       <table className="table">
         <thead>
           <tr>
+            <th scope="col">#</th>
             <th scope="col">Mesa</th>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
@@ -49,7 +50,8 @@ export const AllGuest = () => {
           {
             users.map((user, i) => (
               <tr>
-                <th scope="row">{user.table}</th>
+                <th scope="row">{ i + 1 }</th>
+                <td>{user.table}</td>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.lastName}</td>

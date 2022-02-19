@@ -43,6 +43,7 @@ export const PayInvited = () => {
       <table className="table">
         <thead>
           <tr>
+            <th scope="col">#</th>
             <th scope="col">Mesa</th>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
@@ -55,7 +56,8 @@ export const PayInvited = () => {
           {
             usersPayed.map((user, i) => (
               <tr>
-                <th scope="row">{user.table}</th>
+                <th scope="row">{i + 1}</th>
+                <th>{user.table}</th>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.lastName}</td>
