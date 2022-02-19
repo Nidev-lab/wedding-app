@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-export const AllGuest = () => {
+export const PayInvited = () => {
   const token = localStorage.getItem("token")
   const urlBase = process.env.REACT_APP_URL_API
 
-  const [ users, setUsers ] = useState([])
+  const [users, setUsers] = useState([])
+  const [usersPayed, setUsersPayed] = useState([])
 
   if (!token) {
     window.location.href = '/admin'
@@ -32,6 +33,11 @@ export const AllGuest = () => {
       .then(json => setUsers(json))
   }, [token, urlBase])
 
+  useEffect(() => {
+    const usersPay = users.filter(user => user.isPaid === false)
+    setUsersPayed(usersPay)
+  }, [users])
+
   return (
     <div>
       <table class="table">
@@ -47,7 +53,7 @@ export const AllGuest = () => {
         </thead>
         <tbody>
           {
-            users.map((user, i) => (
+            usersPayed.map((user, i) => (
               <tr>
                 <th scope="row">{user.table}</th>
                 <td>{user._id}</td>

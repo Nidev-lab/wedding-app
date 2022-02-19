@@ -9,6 +9,7 @@ import { Payment } from './components/Payment/Payment'
 import { Verify } from './components/Verify/Verify'
 import { PageNotFound } from './components/commons/404'
 import { AllGuest } from './components/AllGuest/AllGuest'
+import { PayInvited } from './components/PayInvited/PayInvited'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/admin" component={ Admin }/>
           <Route exact path="/admin/panel" component={ Panel }/>
           <Route exact path="/admin/allguest" component={ AllGuest } />
+          <Route exact path="/admin/payinvited" component={ PayInvited } />
           <Route exact path="/admin/invite" component={ Invite }/>
           <Route exact path="/admin/desinvite" component={ Desinvite }/>
           <Route exact path="/admin/payment" component={ Payment }/>
