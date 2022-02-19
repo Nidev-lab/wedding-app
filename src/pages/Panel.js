@@ -1,8 +1,35 @@
-import React from 'react'
-import { AllGuest } from '../components/AllGuest/AllGuest'
-import { PayInvited } from '../components/PayInvited/PayInvited'
+import React, { useEffect, useState } from 'react'
+import { AllGuest } from '../components/Admin/AllGuest/AllGuest'
+import { PayInvited } from '../components/Admin/PayInvited/PayInvited'
 
 export const Panel = () => {
+  const token = localStorage.getItem("token")
+  const urlBase = process.env.REACT_APP_URL_API
+
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetch(urlBase + '/allinvited', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        'access-token': token,
+      },
+    })
+      .then(resp => resp.json())
+      .then(json => setUsers(json))
+  }, [token, urlBase])
+
+  const handleDelete = (id) => {
+    fetch(`${urlBase}/invited/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        'access-token': token,
+      }
+    })
+  }
+
   return (
     <div className="p-4">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -18,10 +45,10 @@ export const Panel = () => {
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <AllGuest />
+          <AllGuest users={users} handleDelete={handleDelete} />
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <PayInvited />
+          <PayInvited users={users} handleDelete={handleDelete} />
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
           Otra Tab

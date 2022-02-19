@@ -1,40 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-export const AllGuest = () => {
-  const token = localStorage.getItem("token")
-  const urlBase = process.env.REACT_APP_URL_API
-
-  const [ users, setUsers ] = useState([])
-
-  if (!token) {
-    window.location.href = '/admin'
-  }
-
-  const handleDelete = (id) => {
-    fetch(`${urlBase}/invited/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-        'access-token': token,
-      }
-    })
-  }
-
-  useEffect(() => {
-    fetch(`${urlBase}/allinvited`, {
-      method: 'GET',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-        'access-token': token,
-      },
-    })
-      .then(resp => resp.json())
-      .then(json => setUsers(json))
-  }, [token, urlBase])
-
+export const AllGuest = ({ users, handleDelete }) => {
   return (
     <div>
-      <table className="table">
+      <table className="table mt-4">
         <thead>
           <tr>
             <th scope="col">#</th>

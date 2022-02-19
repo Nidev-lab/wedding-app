@@ -1,18 +1,15 @@
 import React from 'react'
-import { Login } from '../components/Login/Login'
+import { Login } from '../components/Admin/Login/Login'
 import { useHistory } from "react-router-dom";
 
 
 export const Admin = () => {
   const history = useHistory();
-  const loginUser = localStorage.getItem('token')
+  const token = localStorage.getItem('token')
 
-  if (loginUser){
-    history.push('/admin/invite')
+  if (token){
+    history.push('/admin/panel')
   }
-  return (
-    <div>
-      <Login />
-    </div>
-  )
+
+  return <Login />
 }
