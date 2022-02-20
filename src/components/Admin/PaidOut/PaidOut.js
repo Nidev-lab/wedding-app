@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-export const PayInvited = ({ users }) => {
+export const PaidOut = ({ users }) => {
 
   const [usersPayed, setUsersPayed] = useState([])
 
   useEffect(() => {
     if (users) {
-      const usersPay = users.filter(user => user.isPaid === false)
-      setUsersPayed(usersPay)  
+      const usersPay = users.filter(user => user.invitationPaid === true)
+      setUsersPayed(usersPay)
     }
   }, [users])
 

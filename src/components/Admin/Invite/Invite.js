@@ -28,9 +28,8 @@ export const Invite = () => {
 
   return (
     <>
-      <section className="row justify-content-center">
-        <h1 className="text-center pt-5">Invitar</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="py-5 px-4 col-12 col-sm-8">
+      <section className="row">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-4 col-12">
           <label htmlFor="name">Nombre</label>
           <input type="text" name="name" className="form-control mb-3" {...register("name")} />
 

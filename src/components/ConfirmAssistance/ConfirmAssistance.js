@@ -20,7 +20,7 @@ export const ConfirmAssistance = ({ user }) => {
         body: JSON.stringify(userConfirmed),
       }
 
-      const respuesta = await fetch(`${urlBase}/invited/${user._id}`, parametros)
+      const respuesta = await fetch(urlBase + '/invited/' + user._id, parametros)
       const dato = await respuesta.json()
       
       if (respuesta.status === 200) {
