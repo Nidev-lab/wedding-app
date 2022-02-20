@@ -17,8 +17,8 @@ export const PaidOut = ({ users }) => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Mesa</th>
             <th scope="col">Invitacion</th>
+            <th scope="col">Mesa</th>
             <th scope="col">Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Confirmo?</th>
@@ -29,10 +29,10 @@ export const PaidOut = ({ users }) => {
             usersPayed.map((user, i) => (
               <tr key={user._id}>
                 <th scope="row">{i + 1}</th>
-                <th>{user.table}</th>
                 <td>
                   <a href={'https://chinaynico.netlify.app/invitation/' + user._id}>Link</a>
                 </td>
+                <th>{user.table}</th>
                 <td>{user.name}</td>
                 <td>{user.lastName}</td>
                 <td>{user.isConfirmed ? '🟢' : '🔴'}</td>

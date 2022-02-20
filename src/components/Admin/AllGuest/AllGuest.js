@@ -7,8 +7,8 @@ export const AllGuest = ({ users, handleDelete, handlePay }) => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Mesa</th>
             <th scope="col">Invitacion</th>
+            <th scope="col">Mesa</th>
             <th scope="col">Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Confirmo?</th>
@@ -21,10 +21,10 @@ export const AllGuest = ({ users, handleDelete, handlePay }) => {
             users.map((user, i) => (
               <tr key={user._id}>
                 <th scope="row">{ i + 1 }</th>
-                <td>{user.table}</td>
                 <td>
                   <a href={'https://chinaynico.netlify.app/invitation/' + user._id}>Link</a>
                 </td>
+                <td>{user.table}</td>
                 <td>{user.name}</td>
                 <td>{user.lastName}</td>
                 <td>{user.isConfirmed ? '🟢' : '🔴'}</td>
