@@ -14,12 +14,13 @@ export const Home = () => {
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    fetch(`${urlBase}/invited/${id}`)
+    fetch(urlBase + '/invited/' + id)
       .then(resp => resp.json())
       .then(json => setUser(json))
   },[id, urlBase])
     
-    document.title = user.name + ' ' + user.lastName
+  document.title = user.name + ' ' + user.lastName
+  
   return (
     <>
       {

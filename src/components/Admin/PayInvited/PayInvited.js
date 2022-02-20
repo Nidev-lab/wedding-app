@@ -13,12 +13,12 @@ export const PayInvited = ({ users }) => {
 
   return (
     <div>
-      <table className="table mt-4">
+      <table className="table table-borderless mt-4">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Mesa</th>
-            <th scope="col">Id</th>
+            <th scope="col">Invitacion</th>
             <th scope="col">Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Confirmo?</th>
@@ -30,7 +30,9 @@ export const PayInvited = ({ users }) => {
               <tr key={user._id}>
                 <th scope="row">{i + 1}</th>
                 <th>{user.table}</th>
-                <td>{user._id}</td>
+                <td>
+                  <a href={'https://chinaynico.netlify.app/invitation/' + user._id}>Link</a>
+                </td>
                 <td>{user.name}</td>
                 <td>{user.lastName}</td>
                 <td>{user.isConfirmed ? '🟢' : '🔴'}</td>
